@@ -1,11 +1,13 @@
 import uuid
 import json
 import pyseto
+from datetime import datetime ,timedelta
 from pyseto import Key
 
 data = {
     "id": str(uuid.uuid4()),
-     "flux-time": "2023-04-30T04:00:00.000Z",
+    "exp": (datetime.now()+timedelta(hours=4)).replace(microsecond=0).strftime('%Y-%m-%dT%H:%M:%SZ'),
+     "flux-time": (datetime.now()+timedelta(days=30)).replace(microsecond=0).strftime('%Y-%m-%dT%H:%M:%SZ'),
      "enforced-country": "DE",
      "enforced-location": "90210"
 }
