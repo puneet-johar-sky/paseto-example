@@ -22,10 +22,18 @@ token = pyseto.encode(
 )
 # token is example of the header that one would receive in the request 
 print(f"X-Sky-OTT-CapabilitiesOverride:{1}\n" , token)
+
+#Example of verification & decoding of the header token 
+
+
 #initiliase the decoding via the public key
 with open("./public_key.pem") as key_file:
     public_key = Key.new(3, "public", key_file.read())
+
+    
+#Decode the header using the public key
 decoded = pyseto.decode(public_key, token)
+#payload will be the JSON data to use
 data_test = json.loads( decoded.payload)
 print("--------Good Header Example-------")
 print(data_test)
