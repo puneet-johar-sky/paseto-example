@@ -1,6 +1,6 @@
 import jwt
 
-with open("./private_key.pem",mode="rb") as key_file:
+with open("./jwtRS256.key",mode="rb") as key_file:
     private_key =  key_file.read()
 
 with open("./jwtRS256.key.pub",mode="rb") as key_file:
@@ -11,3 +11,4 @@ print(encoded)
 
 decoded = jwt.decode(encoded, public_key, algorithms=["RS256"])
 print(decoded)
+
